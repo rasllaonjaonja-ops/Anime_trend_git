@@ -1,1 +1,186 @@
-
+{
+  "settingsVersion": 2,
+  "intervalHours": 5,
+  "maxImagesPerCycle": 10,
+  "maxNewsPerCycle": 10,
+  "maxSourcesPerCycle": 10,
+  "maxPostsPerDay": 5,
+  "minDelayMinutes": 240,
+  "autoPublish": true,
+  "testMode": true,
+  "waitImage": false,
+  "autoApprove": true,
+  "discover": true,
+  "distortion": "sometimes",
+  "themes": [
+    "actualité",
+    "personnage",
+    "comparaison",
+    "sondage",
+    "quiz",
+    "théorie",
+    "découverte"
+  ],
+  "sources": [
+    {
+      "id": "jikan-now",
+      "name": "Jikan — animes de la saison",
+      "type": "jikan",
+      "enabled": true,
+      "url": "https://api.jikan.moe/v4/seasons/now?limit=25&sfw=true",
+      "rights": "non vérifié",
+      "restrictions": "Images © studios/éditeurs (via MyAnimeList). Droits de republication non garantis."
+    },
+    {
+      "id": "ann-news",
+      "name": "Anime News Network",
+      "type": "news",
+      "enabled": true,
+      "url": "https://www.animenewsnetwork.com/all/rss.xml",
+      "rights": "lien",
+      "restrictions": "Adresse du flux à confirmer au premier cycle (journal). Seul le lien est partagé (aucune copie de l'article ni de l'image)."
+    },
+    {
+      "id": "mal-news",
+      "name": "MyAnimeList News",
+      "type": "news",
+      "enabled": true,
+      "url": "https://myanimelist.net/rss/news.xml",
+      "rights": "lien",
+      "restrictions": "Adresse du flux à confirmer au premier cycle (journal). Seul le lien est partagé (aucune copie de l'article ni de l'image)."
+    },
+    {
+      "id": "jikan-manga",
+      "name": "Jikan — mangas en cours de publication",
+      "type": "jikan",
+      "enabled": true,
+      "url": "https://api.jikan.moe/v4/top/manga?filter=publishing&limit=25&sfw=true",
+      "rights": "non vérifié",
+      "restrictions": "Images © studios/éditeurs (via MyAnimeList). Droits de republication non garantis."
+    },
+    {
+      "id": "anilist-manga",
+      "name": "AniList — mangas tendance",
+      "type": "anilist",
+      "media": "MANGA",
+      "enabled": true,
+      "url": "https://graphql.anilist.co",
+      "rights": "non vérifié",
+      "restrictions": "Couvertures © éditeurs (via AniList). Droits de republication non garantis."
+    },
+    {
+      "id": "crunchyroll-news",
+      "name": "Crunchyroll News",
+      "type": "news",
+      "enabled": true,
+      "url": "https://cr-news-api-service.prd.crunchyrollsvc.com/v1/en-US/rss",
+      "rights": "lien",
+      "restrictions": "Adresse du flux à confirmer au premier cycle (journal). Seul le lien est partagé (aucune copie de l'article ni de l'image).",
+      "all": true
+    },
+    {
+      "id": "animecorner",
+      "name": "Anime Corner",
+      "type": "news",
+      "enabled": true,
+      "url": "https://animecorner.me/feed/",
+      "rights": "lien",
+      "restrictions": "Adresse du flux à confirmer au premier cycle (journal). Seul le lien est partagé (aucune copie de l'article ni de l'image).",
+      "all": true
+    },
+    {
+      "id": "otakuusa",
+      "name": "Otaku USA",
+      "type": "news",
+      "enabled": true,
+      "url": "https://otakuusamagazine.com/feed/",
+      "rights": "lien",
+      "restrictions": "Adresse du flux à confirmer au premier cycle (journal). Seul le lien est partagé (aucune copie de l'article ni de l'image)."
+    },
+    {
+      "id": "jikan-upcoming",
+      "name": "Jikan — animes à venir",
+      "type": "jikan",
+      "enabled": true,
+      "url": "https://api.jikan.moe/v4/seasons/upcoming?limit=25&sfw=true",
+      "rights": "non vérifié",
+      "restrictions": "Images © studios/éditeurs (via MyAnimeList). Droits de republication non garantis."
+    },
+    {
+      "id": "anilist-anime",
+      "name": "AniList — animes tendance",
+      "type": "anilist",
+      "media": "ANIME",
+      "enabled": true,
+      "url": "https://graphql.anilist.co",
+      "rights": "non vérifié",
+      "restrictions": "Couvertures © éditeurs (via AniList). Droits de republication non garantis."
+    },
+    {
+      "id": "honeysanime",
+      "name": "Honey's Anime",
+      "type": "news",
+      "enabled": true,
+      "url": "https://honeysanime.com/feed/",
+      "rights": "lien",
+      "restrictions": "Adresse du flux à confirmer au premier cycle (journal). Seul le lien est partagé (aucune copie de l'article ni de l'image).",
+      "all": true
+    },
+    {
+      "id": "animeherald",
+      "name": "Anime Herald",
+      "type": "news",
+      "enabled": true,
+      "url": "https://www.animeherald.com/feed/",
+      "rights": "lien",
+      "restrictions": "Adresse du flux à confirmer au premier cycle (journal). Seul le lien est partagé (aucune copie de l'article ni de l'image).",
+      "all": true
+    },
+    {
+      "id": "animeuknews",
+      "name": "Anime UK News",
+      "type": "news",
+      "enabled": true,
+      "url": "https://animeuknews.net/feed",
+      "rights": "lien",
+      "restrictions": "Adresse du flux à confirmer au premier cycle (journal). Seul le lien est partagé (aucune copie de l'article ni de l'image).",
+      "all": true
+    },
+    {
+      "id": "cbr-anime",
+      "name": "CBR — Anime & Manga",
+      "type": "news",
+      "enabled": true,
+      "url": "https://www.cbr.com/feed/category/anime/",
+      "rights": "lien",
+      "restrictions": "Adresse du flux à confirmer au premier cycle (journal). Seul le lien est partagé (aucune copie de l'article ni de l'image).",
+      "all": true
+    },
+    {
+      "id": "jikan-airing",
+      "name": "Jikan — animes en cours de diffusion",
+      "type": "jikan",
+      "enabled": true,
+      "url": "https://api.jikan.moe/v4/top/anime?filter=airing&limit=25&sfw=true",
+      "rights": "non vérifié",
+      "restrictions": "Images © studios/éditeurs (via MyAnimeList). Droits de republication non garantis."
+    }
+  ],
+  "knownDefaults": [
+    "jikan-now",
+    "ann-news",
+    "mal-news",
+    "jikan-manga",
+    "anilist-manga",
+    "crunchyroll-news",
+    "animecorner",
+    "otakuusa",
+    "jikan-upcoming",
+    "anilist-anime",
+    "honeysanime",
+    "animeherald",
+    "animeuknews",
+    "cbr-anime",
+    "jikan-airing"
+  ]
+    }
