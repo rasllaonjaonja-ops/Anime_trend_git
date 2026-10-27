@@ -1,1 +1,295 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#06142f"><meta name="color-scheme" content="dark"><meta name="description" content="Anime Trend : générateur de publications manga et anime, tendances en direct et publication automatique sur Facebook."><meta property="og:title" content="Anime Trend"><meta property="og:description" content="Tendances manga et anime, publications prêtes à partager."><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%B4%E2%80%8D%E2%98%A0%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<title>Anime Trend — Générateur de publications</title>
+<style>
+:root{--bg:#04112a;--panel:#071d40;--panel2:#092852;--line:#174a7d;--blue:#245bff;--purple:#7b2cff;--cyan:#00d9ff;--pink:#ff2588;--green:#00d977;--orange:#ff9d00;--text:#f5f7ff;--muted:#a7b9dd;--radius:16px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 65% 0%,#142567 0,transparent 42%),var(--bg);color:var(--text);font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer;color:inherit;border:1px solid #27518a;background:#0a2850;border-radius:10px;padding:10px 12px;transition:.15s}button:hover{filter:brightness(1.15);transform:translateY(-1px)}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}.app{max-width:1600px;margin:auto}.topbar{min-height:88px;padding:12px 20px;display:flex;align-items:center;gap:18px;background:linear-gradient(110deg,#071b3d,#11104b 75%,#401080);border-bottom:1px solid #4a3b9d}.brand{display:flex;align-items:center;gap:13px;min-width:300px}.avatar{width:68px;height:68px;border-radius:16px;background:linear-gradient(135deg,#ff9d00,#ff2588,#7b2cff);display:grid;place-items:center;font-size:35px;box-shadow:0 0 22px #572dba}.brand h1{font-size:clamp(20px,2vw,30px);margin:0;font-style:italic}.brand h1 span{color:#a95bff}.brand p{margin:3px 0 0;color:#d4def6}.topnav{display:flex;gap:10px;margin-left:auto}.topnav button{background:transparent;border-color:transparent;min-width:75px}.topnav b{display:block;font-size:22px}.slogan{max-width:180px;text-align:center;font-weight:700;color:#e7d5ff;font-style:italic}.layout{display:grid;grid-template-columns:205px minmax(0,1fr) 280px;gap:12px;padding:12px}.sidebar,.main,.rightcard,.featurebar{background:linear-gradient(145deg,#061a38,#04132c);border:1px solid #123d6d;border-radius:16px;box-shadow:0 10px 30px #0003}.sidebar{padding:10px;display:flex;flex-direction:column;gap:5px}.navitem{display:flex;align-items:center;gap:12px;text-align:left;background:transparent;border-color:transparent;padding:12px 10px}.navitem span{font-size:20px;width:24px;text-align:center}.navitem.active{background:linear-gradient(100deg,#742aff,#245bff);border-color:#6658ff}.sideart{margin-top:auto;min-height:210px;border-radius:12px;padding:12px;display:flex;flex-direction:column;justify-content:end;background:radial-gradient(circle at 50% 25%,#174a8c,#06142f 65%);font-size:13px;color:#e2dcff}.sideart .emoji{font-size:64px;text-align:center}.main{padding:12px;min-width:0}.sectiontitle{font-size:20px;margin:2px 4px 12px;display:flex;align-items:center;gap:10px}.sectiontitle span{color:#a58bff;font-size:25px}.step{background:linear-gradient(145deg,#092b54,#061d3c);border:1px solid #153e70;border-radius:14px;padding:12px;margin-bottom:10px}.steptitle{font-weight:700;margin-bottom:10px;display:flex;gap:10px;align-items:center}.num{display:inline-grid;place-items:center;background:#f4edff;color:#6a27ff;width:27px;height:27px;border-radius:50%;font-size:17px;box-shadow:0 0 12px #7b2cff66}.types{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.type{padding:12px 5px;min-height:78px;font-weight:700;border:0}.type i{display:block;font-style:normal;font-size:25px;margin-bottom:4px}.type.selected{outline:2px solid white;outline-offset:1px}.t1{background:#087df5}.t2{background:#6e2cff}.t3{background:#e89100}.t4{background:#00a987}.t5{background:#f32c65}.t6{background:#00a9bd}.searchrow{display:flex;gap:8px}.field,textarea,select{width:100%;color:var(--text);background:#06234a;border:1px solid #28568a;border-radius:10px;padding:11px}.field::placeholder,textarea::placeholder{color:#9cb0d1}.searchrow .field{flex:1}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.tag{padding:6px 10px;border-radius:20px;background:#0a3970;color:#cceaff;font-size:12px}.tag:hover{background:#174f95}.editorgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.78fr);gap:10px}.editor label{display:block;margin:8px 0 5px;color:#d7e4ff;font-size:12px}.editor textarea{min-height:118px;resize:vertical}.counter{text-align:right;font-size:11px;color:var(--muted)}.previewwrap{min-width:0}.preview{background:#fff;color:#17233a;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px #0005;font-size:12px}.previewhead{display:flex;gap:9px;align-items:center;padding:10px}.miniavatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#ff9d00,#7b2cff);display:grid;place-items:center;font-size:19px}.previewhead small{display:block;color:#64748b}.dots{margin-left:auto;font-weight:900}.previewtext{padding:0 11px 10px;white-space:pre-wrap;overflow-wrap:anywhere}.previewimage{width:100%;max-height:240px;object-fit:cover;display:block;background:#dbeafe}.previewstats{padding:8px 10px;color:#64748b;border-top:1px solid #e5e7eb;font-size:11px}.actions{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:10px}.primary{background:linear-gradient(100deg,#6b2cff,#245bff);border:0}.pink{background:linear-gradient(100deg,#ff2588,#d90072);border:0}.status{font-size:12px;color:#a9e6ff;min-height:18px;margin-top:7px}.rightcol{display:flex;flex-direction:column;gap:10px;min-width:0}.rightcard{padding:12px}.righttitle{font-size:16px;font-weight:700;margin-bottom:10px}.trend,.event,.statrow{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #12365d}.trend:last-child,.event:last-child,.statrow:last-child{border-bottom:0}.thumb{width:34px;height:34px;flex-shrink:0;border-radius:9px;background:linear-gradient(135deg,#1c70b9,#7b2cff);display:grid;place-items:center;font-size:20px}.trendtext,.eventtext{min-width:0;flex:1}.trendtext small,.eventtext small{display:block;color:var(--muted);font-size:11px}.rise{color:#ffb14b;font-size:11px;white-space:nowrap}.event{font-size:11px;gap:6px}.eventtext{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dot{width:9px;height:9px;border-radius:50%;background:var(--green);flex-shrink:0}.statrow{font-size:12px}.statrow strong{margin-left:auto}.featurebar{margin:0 12px 12px;padding:14px}.featurebar h3{margin:0 0 10px}.features{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.feature{border-radius:14px;text-align:center;padding:13px 9px;min-height:112px}.feature b{display:block;font-size:22px}.feature strong{display:block;margin:5px 0}.feature small{display:block;font-size:11px}.feature:nth-child(1){background:linear-gradient(135deg,#8b25ff,#3d32ef)}.feature:nth-child(2){background:linear-gradient(135deg,#4a4cff,#0956e9)}.feature:nth-child(3){background:linear-gradient(135deg,#ff268e,#d91c72)}.feature:nth-child(4){background:linear-gradient(135deg,#11d84e,#00a88c)}.feature:nth-child(5){background:linear-gradient(135deg,#ffac00,#ef7800)}.feature:nth-child(6){background:linear-gradient(135deg,#04cdbd,#0088a7)}.footer{padding:18px;text-align:center;font-weight:800;font-size:clamp(15px,2vw,23px);font-style:italic;background:linear-gradient(100deg,#172c94,#7b13c7,#162baf);border-top:1px solid #5e3aff}.view{display:none}.view.active{display:block}.listitem{padding:12px;border:1px solid #1a4775;border-radius:10px;margin:8px 0;background:#08234a}.listitem h3{margin:0 0 5px}.listitem p{white-space:pre-wrap;color:#d4e1fb}.listbuttons{display:flex;gap:6px;flex-wrap:wrap}.hidden{display:none!important}.twofields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.imageinput{font-size:12px}.smallmuted{font-size:12px;color:var(--muted)}.danger{background:#5a1736;border-color:#a52b59}.modalback{position:fixed;inset:0;background:#0009;display:none;place-items:center;padding:18px;z-index:10}.modalback.show{display:grid}.modal{max-width:440px;width:100%;background:#071d40;border:1px solid #315b91;border-radius:16px;padding:18px}.modal h2{margin-top:0}.modal .actions{justify-content:flex-end}
+@media(max-width:1120px){.layout{grid-template-columns:175px minmax(0,1fr)}.rightcol{grid-column:2;display:grid;grid-template-columns:1fr 1fr}.brand{min-width:unset}.slogan{display:none}.features{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.topbar{padding:10px;gap:8px;flex-wrap:wrap}.brand{min-width:0;flex:1}.avatar{width:48px;height:48px;font-size:27px}.brand h1{font-size:21px}.brand p{font-size:10px}.topnav{order:3;width:100%;margin:0;justify-content:space-around;gap:2px}.topnav button{min-width:0;padding:7px 4px;font-size:11px}.topnav b{font-size:18px}.layout{display:flex;flex-direction:column;padding:7px;gap:8px}.sidebar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}.navitem{flex-direction:column;justify-content:center;text-align:center;gap:3px;font-size:10px;padding:8px 3px}.navitem span{font-size:18px}.sideart{display:none}.main{padding:8px}.sectiontitle{font-size:17px}.step{padding:9px}.types{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.type{min-height:67px;font-size:12px}.editorgrid{grid-template-columns:1fr}.previewwrap{max-width:460px;width:100%;margin:auto}.rightcol{display:flex}.features{grid-template-columns:repeat(2,1fr)}.feature{min-height:100px}.searchrow{flex-direction:column}.twofields{grid-template-columns:1fr}.featurebar{margin:0 7px 8px;padding:10px}.footer{padding:15px 10px}.actions button{flex:1}.rightcard{padding:10px}}
 
+/* ===== Maquette : icônes, puces, calendrier ===== */
+.navitem{border-radius:12px;font-weight:600}.navitem.active{box-shadow:0 0 18px #7b2cff88}.navitem svg,.topnav svg,.type svg{display:block;margin:auto}
+.topnav button{color:#e4ebff}.topnav b{margin-bottom:2px}
+.type{border-radius:14px;box-shadow:0 6px 16px #0004}.type i{margin-bottom:6px}
+#topic{padding-left:40px;background-repeat:no-repeat;background-position:12px center;background-size:18px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239cb0d1' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-4-4'/%3E%3C/svg%3E")}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.chip{padding:5px 10px;border-radius:20px;background:#0b3a74;color:#cfe8ff;font-size:12px;border:1px solid #1c5aa0}button.chip{padding:5px 11px}
+#mainActions .pink{margin-left:auto;padding:12px 22px;font-weight:700;box-shadow:0 0 18px #ff258866}
+.rise{background:#3a2308;border:1px solid #7a4a10;border-radius:12px;padding:2px 8px}
+.event{font-size:12px}.event>span:first-child{color:#cfe0ff;min-width:38px}.event>span:nth-child(2){color:#a7b9dd;min-width:40px}
+.rightcard .righttitle{display:flex;align-items:center;gap:8px}
+.feature{box-shadow:0 8px 20px #0004}
+
+/* ===== v2.0 : design amélioré ===== */
+:root{--muted:#b9c9e8;--glow:0 0 0 3px #00d9ff33}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-size:15px;line-height:1.55;letter-spacing:.005em}
+h1,h2,h3{letter-spacing:-.01em}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:#04112a;padding:8px 12px;border-radius:8px;z-index:100}.skip:focus{left:8px}
+.topbar{position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:linear-gradient(110deg,#071b3dee,#11104bee 75%,#401080ee)}
+.sidebar{position:sticky;top:104px;align-self:start;max-height:calc(100vh - 116px);overflow:auto;scrollbar-width:thin}
+.navitem{transition:background .15s,transform .15s}.navitem:hover{background:#0d2f5e;transform:translateX(2px)}
+.navitem.active{background:linear-gradient(120deg,#245bff,#7b2cff);border-color:transparent}
+.sectiontitle{font-size:clamp(19px,2.4vw,26px);padding-bottom:10px;margin-bottom:14px;border-bottom:1px solid #174a7d;background:linear-gradient(90deg,#fff,#b9a4ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sectiontitle span{-webkit-text-fill-color:initial}
+.step{box-shadow:0 8px 24px #0003;border-left:3px solid #245bff}
+button.primary,a.btn.primary{background:linear-gradient(135deg,#245bff,#7b2cff);border-color:transparent;box-shadow:0 6px 18px #245bff55}
+a.btn{display:inline-block;text-decoration:none;color:inherit;border:1px solid #27518a;background:#0a2850;border-radius:10px;padding:10px 12px;transition:.15s}
+a.btn:hover{filter:brightness(1.15);transform:translateY(-1px)}
+button:active,a.btn:active{transform:translateY(0) scale(.98)}
+.field,textarea,select,input[type=number],input[type=date],input[type=time]{background:#051731;color:var(--text);border:1px solid #1d4a82;border-radius:10px;padding:10px 12px;width:100%;transition:border-color .15s,box-shadow .15s}
+.field:focus,textarea:focus,select:focus{border-color:var(--cyan);box-shadow:var(--glow);outline:none}
+textarea{min-height:110px;resize:vertical}
+.listitem{transition:border-color .15s,transform .15s}.listitem:hover{border-color:#2d6bb0;transform:translateY(-1px)}
+.view.active{animation:fadeIn .25s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:10px}
+.kpi{background:linear-gradient(145deg,#0a2d5c,#061d3c);border:1px solid #1a4775;border-radius:14px;padding:12px}
+.kpi small{display:block;color:var(--muted);font-size:12px}.kpi b{display:block;font-size:20px;margin:2px 0}.kpi em{font-style:normal;font-size:12px;color:#9fe3ff}
+.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700;background:#16407a;color:#cfe8ff}
+.badge.ok{background:#0b5d3b;color:#b9ffd9}.badge.warn{background:#6a4300;color:#ffe2a8}.badge.ko{background:#6a1230;color:#ffc2d3}
+code{background:#041126;border:1px solid #174a7d;border-radius:6px;padding:1px 6px;font-size:.92em}
+.footer a{color:#cfe8ff}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:#1d4a82;border-radius:10px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:1120px){.sidebar{position:static;max-height:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><div class="avatar" aria-hidden="true">🏴‍☠️</div><div><h1>Anime <span>Trend</span></h1><strong>Générateur de Publications</strong><p>Mangas • Animes • Actualités • Communauté</p></div></div>
+  <nav class="topnav" aria-label="Navigation principale">
+    <button onclick="showView('home')"><b>⌂</b>Accueil</button><button onclick="showView('calendar')"><b>▦</b>Calendrier</button><button onclick="showView('posts')"><b>▣</b>Mes publications</button><button onclick="showView('settings')"><b>⚙</b>Paramètres</button>
+  </nav>
+  <div class="slogan">✨ Des tendances du jour aux meilleures publications !</div>
+</header>
+<div class="layout">
+<aside class="sidebar" aria-label="Navigation latérale">
+  <button class="navitem active" data-view="home" onclick="showView('home')"><span>⌂</span>Accueil</button>
+  <button class="navitem" data-view="create" onclick="showView('create')"><span>✦</span>Générer une publication</button>
+  <button class="navitem" data-view="trends" onclick="showView('trends')"><span>♨</span>Tendances du moment</button>
+  <button class="navitem" data-view="calendar" onclick="showView('calendar')"><span>▦</span>Mon calendrier</button>
+  <button class="navitem" data-view="drafts" onclick="showView('drafts')"><span>▤</span>Mes brouillons</button>
+  <button class="navitem" data-view="posts" onclick="showView('posts')"><span>☑</span>Mes publications</button>
+  <button class="navitem" data-view="images" onclick="showView('images')"><span>▧</span>Bibliothèque d'images</button>
+  <button class="navitem" data-view="tuto" onclick="showView('tuto')"><span>🎓</span>Tutoriel pas à pas</button>
+  <button class="navitem" data-view="auto" onclick="showView('auto')"><span>⚡</span>Automatisation</button>
+  <button class="navitem" data-view="export" onclick="showView('export')"><span>⇩</span>Exportation</button>
+  <button class="navitem" data-view="help" onclick="showView('help')"><span>?</span>Aide</button>
+  <div class="sideart"><div class="emoji">🍥</div><em>« Les rêves ne meurent jamais. »</em><small style="text-align:right">— Esprit manga</small></div>
+</aside>
+
+<main class="main" id="main">
+<section id="view-home" class="view active">
+<h2 class="sectiontitle"><span>✦</span> Générer une publication</h2>
+<div class="step"><div class="steptitle"><span class="num">1</span> Choisissez un type de publication</div>
+<div class="types" id="types">
+<button class="type t1 selected" data-type="Actualité" onclick="selectType(this)"><i>📣</i>Actualité</button>
+<button class="type t2" data-type="Personnage" onclick="selectType(this)"><i>👤</i>Personnage</button>
+<button class="type t3" data-type="Comparaison" onclick="selectType(this)"><i>⚖</i>Comparaison</button>
+<button class="type t4" data-type="Sondage" onclick="selectType(this)"><i>▥</i>Sondage</button>
+<button class="type t5" data-type="Quiz" onclick="selectType(this)"><i>❔</i>Quiz</button>
+<button class="type t6" data-type="Théorie" onclick="selectType(this)"><i>🧠</i>Théorie</button>
+</div></div>
+<div class="step"><div class="steptitle"><span class="num">2</span> Sélectionnez un sujet ou saisissez le vôtre</div>
+<div class="searchrow"><input class="field" id="topic" placeholder="Rechercher un anime, un manga ou une tendance…" value="One Piece"><button class="primary" onclick="chooseTrend()">🔥 Tendances du moment</button></div>
+<div class="tags" id="suggestions"><button class="tag" onclick="setTopic('One Piece')">🔥 #OnePiece</button><button class="tag" onclick="setTopic('Jujutsu Kaisen')">#JujutsuKaisen</button><button class="tag" onclick="setTopic('Demon Slayer')">#DemonSlayer</button><button class="tag" onclick="setTopic('Solo Leveling')">#SoloLeveling</button><button class="tag" onclick="setTopic('Naruto')">#Naruto</button><button class="tag" onclick="showView('trends')">＋ Voir plus</button></div>
+</div>
+<div class="editorgrid">
+<div class="step editor"><div class="steptitle"><span class="num">3</span> Personnalisez votre publication</div>
+<label for="title">Titre (optionnel)</label><input class="field" id="title" maxlength="100" value="Un nouvel épisode de One Piece fait sensation !" placeholder="Titre accrocheur…"><div class="counter"><span id="titlecount">42</span>/100</div>
+<label for="bodytext">Texte de la publication</label><textarea id="bodytext" maxlength="2000">Le dernier épisode de One Piece a encore une fois fait parler les fans ! Entre action, émotions et révélations, l'aventure continue de nous surprendre.
+
+Et vous, qu'avez-vous pensé de cet épisode ? 😍
+
+Dites-le-nous en commentaire !</textarea><div class="counter"><span id="bodycount">0</span>/2000</div>
+<label for="tone">Ton</label><select id="tone"><option>Enthousiaste</option><option>Informatif</option><option>Humoristique</option><option>Mystérieux</option><option>Analytique</option><option>Débat communautaire</option></select>
+<label for="hashtags">Hashtags (séparés par des espaces)</label><input class="field" id="hashtags" value="#OnePiece #Anime #Manga #Luffy #Episode #Tendances"><div class="chips" id="chips"></div><div class="counter" id="hashcount"></div>
+<label for="imagefile">Image de la publication</label><input class="field imageinput" type="file" id="imagefile" accept="image/*"><small class="smallmuted">Utilisez une image dont vous avez les droits.</small>
+</div>
+<div class="step previewwrap"><div class="steptitle">Aperçu de la publication</div>
+<div class="preview"><div class="previewhead"><div class="miniavatar">🏴‍☠️</div><div><strong>Anime Trend</strong><small>À l’instant · aperçu local</small></div><div class="dots">•••</div></div>
+<div class="previewtext"><strong id="prevtitle">Un nouvel épisode de One Piece fait sensation !</strong><br><br><span id="prevbody"></span><br><br><span id="prevhash" style="color:#1769aa"></span></div>
+<img class="previewimage hidden" id="previmage" alt="Aperçu de l'image importée">
+<div class="previewstats">👍 ❤️ 😮 &nbsp; Démonstration &nbsp; · &nbsp; Commentaires et partages fictifs</div></div>
+<div class="actions"><button onclick="togglePreviewImage()">Afficher/masquer l’image</button></div>
+</div>
+</div>
+<div class="step"><div class="steptitle"><span class="num">4</span> Actions</div>
+<div class="actions" id="mainActions"><button class="primary" onclick="generatePost()">✦ Générer un texte</button><button onclick="savePost()">▣ Sauvegarder</button><button onclick="copyPost()">▢ Copier</button><button onclick="exportCurrent()">⇩ Exporter</button><button class="pink" onclick="schedulePost()">▦ Programmer</button></div>
+<div class="status" id="status" role="status" aria-live="polite">Générateur local prêt. Aucune IA externe ni page Facebook connectée.</div>
+</div>
+</section>
+
+<section id="view-create" class="view"><h2 class="sectiontitle">✦ Générateur de publications</h2><p>Le formulaire principal se trouve dans l'accueil. Choisissez un format, saisissez un sujet et générez votre texte.</p><button class="primary" onclick="showView('home')">Ouvrir le générateur</button></section>
+<section id="view-trends" class="view"><h2 class="sectiontitle">🔥 Tendances du moment</h2><p class="smallmuted">Exemples locaux uniquement — aucune donnée en temps réel n'est connectée.</p><div id="trendlist"></div><button onclick="showView('home')">Créer une publication</button></section>
+<section id="view-calendar" class="view"><h2 class="sectiontitle">▦ Calendrier éditorial</h2><p class="smallmuted">Les rendez-vous sont enregistrés dans ce navigateur. Cela ne déclenche pas une publication Facebook.</p><div class="twofields"><div><label for="schedDate">Date</label><input class="field" id="schedDate" type="date"></div><div><label for="schedTime">Heure</label><input class="field" id="schedTime" type="time" value="19:00"></div></div><div class="actions"><button class="primary" onclick="schedulePost()">＋ Ajouter au calendrier</button></div><div id="calendarlist"></div></section>
+<section id="view-drafts" class="view"><h2 class="sectiontitle">▤ Mes brouillons</h2><div id="draftlist"></div></section>
+<section id="view-posts" class="view"><h2 class="sectiontitle">▣ Mes publications</h2><div class="actions"><input class="field" id="postsearch" placeholder="Rechercher dans mes publications…" oninput="renderPosts()" style="max-width:320px"><select id="postfilter" onchange="renderPosts()" style="max-width:190px"><option value="">Tous les statuts</option><option>Brouillon</option><option>Programmée</option><option>Prête à publier</option></select></div><div id="postlist"></div></section>
+<section id="view-images" class="view"><h2 class="sectiontitle">▧ Bibliothèque d'images</h2><p class="smallmuted">Les images sont disponibles dans la session courante. Pour éviter de remplir le stockage local, elles ne sont pas intégrées automatiquement aux sauvegardes JSON.</p><div id="imagelist"></div><button onclick="showView('home')">Retour au générateur</button></section>
+<section id="view-export" class="view"><h2 class="sectiontitle">⇩ Exportation</h2><p>Exportez vos publications et rendez-vous locaux au format JSON, ou téléchargez la publication en TXT ou HTML.</p><div class="actions"><button class="primary" onclick="exportAll()">Exporter toutes les données (JSON)</button><button onclick="exportCurrent()">Exporter la publication actuelle (TXT)</button><label class="field" style="max-width:300px">Importer une sauvegarde JSON <input type="file" id="jsonfile" accept=".json,application/json"></label></div></section>
+<section id="view-settings" class="view"><h2 class="sectiontitle">⚙ Paramètres</h2><div class="step"><strong>Mode local</strong><p>Les données sont stockées dans le navigateur de cet appareil.</p><strong>Intégrations externes</strong><p>IA externe : non connectée.</p><p>Facebook / Meta : la page web ne publie rien elle-même. La publication automatique est assurée par le robot GitHub Actions (onglet Automatisation).</p><button class="danger" onclick="clearAll()">Effacer toutes les données locales</button></div></section>
+<section id="view-help" class="view"><h2 class="sectiontitle">? Aide</h2><div class="step"><p><strong>Générer :</strong> choisissez un type, indiquez le sujet puis cliquez sur « Générer un texte ».</p><p><strong>Sauvegarder :</strong> enregistre le brouillon dans ce navigateur.</p><p><strong>Programmer :</strong> ajoute un rendez-vous au calendrier local, sans publier automatiquement sur Facebook.</p><p><strong>Exporter :</strong> crée un fichier que vous pouvez garder sur votre téléphone.</p><p><strong>Images :</strong> importez uniquement des visuels dont vous avez l'autorisation d'utilisation.</p></div></section>
+
+<section id="view-tuto" class="view"><h2 class="sectiontitle"><span>🎓</span> Tutoriel : publier pas à pas (12 étapes)</h2>
+<p><a class="btn primary" href="tuto.html">📘 Ouvrir le guide complet (tuto.html)</a></p><p class="smallmuted">Cochez chaque étape. Progression : <b id="tutoProg">0</b>. Les coches restent sur cet appareil.</p><div id="tutoList"></div>
+<div class="step"><strong>Modèle de publication prêt à adapter</strong><p id="tutoModel" style="white-space:pre-wrap"></p><button onclick="copyTutoModel()">⧉ Copier le modèle</button></div></section>
+<section id="view-auto" class="view"><h2 class="sectiontitle"><span>⚡</span> Automatisation (GitHub Actions)</h2>
+<div class="step"><p class="smallmuted">Un robot GitHub Actions lit les sources manga/anime et publie sur votre Page Facebook. Ce tableau de bord est en <b>lecture seule</b> : les réglages se modifient dans <code>data/settings.json</code> (aucun mot de passe à saisir : GitHub vous identifie).</p>
+<div class="actions" style="justify-content:flex-start"><button class="primary" onclick="autoLoad()">↻ Actualiser</button><a class="btn" id="lnkRun" target="_blank" rel="noopener">▶ Lancer un cycle</a><a class="btn" id="lnkSet" target="_blank" rel="noopener">⚙ Modifier les réglages</a><a class="btn" id="lnkSec" target="_blank" rel="noopener">🔑 Secrets Facebook</a></div>
+<div class="status" id="autoMsg" role="status">Chargement…</div></div>
+<div id="autoBox" class="hidden">
+<div class="kpis" id="autoKpis"></div>
+<div class="step"><strong>Publications préparées</strong><div id="aPosts"></div></div>
+<div class="step"><strong>Sources</strong><div id="aSrc"></div></div>
+<div class="step"><strong>Journal des exécutions</strong><div id="aLogs"></div></div>
+</div></section>
+</main>
+<aside class="rightcol">
+<div class="rightcard"><div class="righttitle">🔥 Tendances détectées <button style="float:right;padding:2px 7px" onclick="renderTrends()" aria-label="Actualiser les exemples">↻</button></div><div id="miniTrends"></div><p class="smallmuted" id="liveNote">Exemples de démonstration</p></div>
+<div class="rightcard"><div class="righttitle">▦ Calendrier éditorial (7 jours)</div><div id="miniCalendar"></div><button style="width:100%;margin-top:8px" onclick="showView('calendar')">Voir tout le calendrier →</button></div>
+<div class="rightcard"><div class="righttitle">▤ Mes publications</div><div class="statrow">🟠 Brouillons <strong id="draftCount">0</strong></div><div class="statrow">🔵 Prêtes à publier <strong id="readyCount">0</strong></div><div class="statrow">🟢 Programmées <strong id="scheduledCount">0</strong></div></div>
+</aside>
+</div>
+<section class="featurebar"><h3>⭐ Les principales fonctions</h3><div class="features">
+<div class="feature"><b>♧</b><strong>Détecte les tendances</strong><small>Repère les sujets populaires grâce aux sources connectées.</small></div>
+<div class="feature"><b>▣</b><strong>Modèles intégrés</strong><small>Génère des textes, titres, hashtags et idées de visuels.</small></div>
+<div class="feature"><b>▧</b><strong>Crée des visuels</strong><small>Utilise des images libres de droits ou tes propres photos.</small></div>
+<div class="feature"><b>▦</b><strong>Planifie</strong><small>Organise les publications sur plusieurs jours.</small></div>
+<div class="feature"><b>f</b><strong>Publie sur Facebook</strong><small>Avec votre autorisation, sur votre Page Facebook.</small></div>
+<div class="feature"><b>☁</b><strong>Sauvegarde et exporte</strong><small>Garde tes données et exporte-les en TXT, HTML ou JSON.</small></div>
+</div></section>
+<footer class="footer">🚀 Automatisez votre passion et partagez le meilleur de l’univers manga et anime !<br><a href="tuto.html">📘 Guide d’installation GitHub (tuto.html)</a></footer>
+</div>
+<div class="modalback" id="modal"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><h2 id="modalTitle">Confirmer</h2><p id="modalText"></p><div class="actions"><button onclick="closeModal()">Annuler</button><button class="danger" id="modalConfirm">Confirmer</button></div></div></div>
+<script>
+const KEY='animeTrendData_v1';
+let selectedType='Actualité', currentImage='', imageLibrary=[], confirmAction=null;
+let seedTrends=[
+ {name:'One Piece',detail:'Nouveauté à vérifier',emoji:'🏴‍☠️',tag:'#OnePiece'},
+ {name:'Jujutsu Kaisen',detail:'Actualité anime à vérifier',emoji:'🥋',tag:'#JujutsuKaisen'},
+ {name:'Demon Slayer',detail:'Sorties et annonces à vérifier',emoji:'⚔️',tag:'#DemonSlayer'},
+ {name:'Solo Leveling',detail:'Saison et annonces à vérifier',emoji:'🗡️',tag:'#SoloLeveling'},
+ {name:'Naruto',detail:'Communauté et débats',emoji:'🍥',tag:'#Naruto'}
+];
+let data=loadData();
+function loadData(){try{const d=JSON.parse(localStorage.getItem(KEY)||'{}');return {posts:Array.isArray(d.posts)?d.posts:[],events:Array.isArray(d.events)?d.events:[]}}catch(e){return {posts:[],events:[]}}}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(data));return true}catch(e){say('Sauvegarde impossible : stockage local plein ou indisponible. Exportez vos données en JSON.');return false}}
+function say(s){document.getElementById('status').textContent=s}
+function showView(name){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+name));document.querySelectorAll('.navitem').forEach(b=>b.classList.toggle('active',b.dataset.view===name));if(name==='calendar')renderCalendar();if(name==='posts')renderPosts();if(name==='drafts')renderDrafts();if(name==='trends')renderTrends();if(name==='images')renderImages();if(name==='export'){}window.scrollTo({top:0,behavior:'smooth'})}
+function selectType(btn){selectedType=btn.dataset.type;document.querySelectorAll('.type').forEach(b=>b.classList.toggle('selected',b===btn));}
+function setTopic(s){document.getElementById('topic').value=s;say('Sujet sélectionné : '+s);updatePreview()}
+function chooseTrend(){showView('trends');say('Tendances affichées (en direct si Jikan répond, sinon exemples locaux).')}
+function getText(){return document.getElementById('bodytext').value.trim()}
+function getTitle(){return document.getElementById('title').value.trim()}
+function getTags(){return document.getElementById('hashtags').value.trim()}
+function updatePreview(){document.getElementById('prevtitle').textContent=getTitle();document.getElementById('prevbody').textContent=getText();document.getElementById('prevhash').textContent=getTags();document.getElementById('titlecount').textContent=document.getElementById('title').value.length;document.getElementById('bodycount').textContent=document.getElementById('bodytext').value.length;document.getElementById('hashcount').textContent=getTags().length+' caractères';}
+['title','bodytext','hashtags'].forEach(id=>document.getElementById(id).addEventListener('input',updatePreview));
+document.getElementById('topic').addEventListener('input',()=>{});
+function generatePost(){
+ const topic=document.getElementById('topic').value.trim()||'un anime à découvrir',tone=document.getElementById('tone').value;
+ const openers={Enthousiaste:`🔥 Parlons de ${topic} !`,Informatif:`📌 Point sur ${topic} :`,Humoristique:`😂 La communauté de ${topic} n'est jamais à court de surprises !`,Mystérieux:`👀 Et si ${topic} nous réservait encore une surprise ?`,Analytique:`🔎 Prenons un instant pour analyser ${topic}.`,'Débat communautaire':`💬 Grand débat autour de ${topic} !`};
+ const bodies={
+ 'Actualité':`${openers[tone]}\n\nUne information circule au sujet de ${topic}. Avant de la partager comme un fait, vérifions l'annonce officielle et sa date.\n\nQu'aimeriez-vous voir confirmé ensuite ?`,
+ 'Personnage':`${openers[tone]}\n\nQuel personnage de ${topic} vous marque le plus ? Parlez-nous de ses qualités, de ses choix et du moment qui vous a le plus impressionné.\n\nVotre réponse en commentaire !`,
+ 'Comparaison':`${openers[tone]}\n\nPour comparer les personnages de ${topic}, regardons leurs capacités, leur stratégie et leurs décisions — pas seulement leur popularité.\n\nQuel critère compte le plus pour vous, et pourquoi ?`,
+ 'Sondage':`${openers[tone]}\n\nQuel aspect de ${topic} préférez-vous ?\n🅰️ L'histoire\n🅱️ Les personnages\n🆎 Les combats\n🅾️ La musique et l'ambiance\n\nVotez en commentaire et expliquez votre choix !`,
+ 'Quiz':`${openers[tone]}\n\nQUIZ : quel élément de ${topic} connaissez-vous le mieux ?\n\nÉcrivez votre réponse avant de lire les commentaires. Qui fera un sans-faute ?\n\nRéponse à ajouter après vérification.`,
+ 'Théorie':`${openers[tone]}\n\nVoici une hypothèse de discussion autour de ${topic}. Séparons les éléments confirmés des interprétations des fans : une théorie reste une théorie tant qu'elle n'est pas confirmée par une source officielle.\n\nQuelle est votre interprétation ?`
+ };
+ document.getElementById('title').value=`${topic} : ${selectedType.toLowerCase()} pour les fans`;
+ document.getElementById('bodytext').value=bodies[selectedType]||bodies.Actualité;
+ document.getElementById('hashtags').value='#Anime #Manga '+topic.split(/\s+/).map(x=>'#'+x.replace(/[^\p{L}\p{N}]/gu,'')).join(' ');
+ updatePreview();say('Texte créé à partir du modèle local « '+selectedType+' ». Ce n’est pas une réponse d’IA externe.');showView('home');
+}
+function makePost(status='Brouillon'){return {id:Date.now()+Math.floor(Math.random()*1000),type:selectedType,topic:document.getElementById('topic').value.trim(),title:getTitle(),body:getText(),hashtags:getTags(),tone:document.getElementById('tone').value,status,created:new Date().toISOString(),imageName:document.getElementById('imagefile').files[0]?.name||''}}
+function savePost(){const p=makePost('Brouillon');data.posts.unshift(p);if(persist()){renderAll();say('Brouillon sauvegardé dans ce navigateur.');}}
+function copyPost(){const t=[getTitle(),getText(),getTags()].filter(Boolean).join('\n\n');if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(()=>say('Publication copiée.')).catch(()=>fallbackCopy(t))}else fallbackCopy(t)}
+function fallbackCopy(t){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');say('Copie demandée. Si elle échoue, sélectionnez le texte manuellement.')}catch(e){say('Copie indisponible dans ce navigateur.')}a.remove()}
+function downloadFile(name,content,type){const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+function exportCurrent(){downloadFile('anime-trend-publication.txt',[getTitle(),getText(),getTags()].filter(Boolean).join('\n\n'),'text/plain;charset=utf-8');say('Export TXT préparé.')}
+function exportAll(){downloadFile('anime-trend-sauvegarde.json',JSON.stringify({version:1,exportedAt:new Date().toISOString(),...data},null,2),'application/json');say('Sauvegarde JSON préparée.')}
+function schedulePost(){const date=document.getElementById('schedDate').value||new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10),time=document.getElementById('schedTime').value||'19:00';const p=makePost('Programmée');p.date=date;p.time=time;data.posts.unshift(p);data.events.push({id:p.id,date,time,title:p.title||p.topic||'Publication sans titre',type:p.type});if(persist()){renderAll();say('Ajouté au calendrier local. Facebook ne sera pas publié automatiquement.');showView('calendar')}}
+async function loadLiveTrends(){try{let a=null;try{a=JSON.parse(sessionStorage.getItem('atLive')||'null')}catch(e){}if(!a){const g=async u=>{const r=await fetch(u);if(!r.ok)throw Error('HTTP '+r.status);return (await r.json()).data||[]};const an=await g('https://api.jikan.moe/v4/top/anime?filter=airing&limit=5&sfw=true');await new Promise(r=>setTimeout(r,450));const ma=await g('https://api.jikan.moe/v4/top/manga?filter=publishing&limit=5&sfw=true');const cl=s=>String(s).replace(/[^\p{L}\p{N}]/gu,'');a=[...an.slice(0,3).map(x=>({name:x.title_english||x.title,detail:'Anime en cours · note '+(x.score||'—'),emoji:'📺',tag:'#'+cl(x.title_english||x.title),live:1})),...ma.slice(0,3).map(x=>({name:x.title_english||x.title,detail:'Manga en cours · rang '+(x.rank||'—'),emoji:'📖',tag:'#'+cl(x.title_english||x.title),live:1}))];try{sessionStorage.setItem('atLive',JSON.stringify(a))}catch(e){}}if(a&&a.length){seedTrends=a;renderTrends();const n=aEl('liveNote');if(n)n.textContent='Données en direct (Jikan / MyAnimeList)'}}catch(e){}}
+function renderTrends(){const make=t=>`<div class="trend"><div class="thumb">${t.emoji}</div><div class="trendtext"><strong>${esc(t.name)}</strong><small>${esc(t.detail)}</small></div><span class="rise">🔥 ${t.live?'En direct':'Exemple'}</span></div>`;document.getElementById('miniTrends').innerHTML=seedTrends.slice(0,4).map(make).join('');document.getElementById('trendlist').innerHTML=seedTrends.map(t=>`<div class="listitem"><h3>${t.emoji} ${esc(t.name)}</h3><p>${esc(t.detail)}.${t.live?'':' Données en direct indisponibles : exemples locaux.'}</p><button data-n="${esc(t.name)}" onclick="setTopic(this.dataset.n);showView('home')">Créer un post</button></div>`).join('')}
+function renderCalendar(){const sorted=[...data.events].sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));document.getElementById('calendarlist').innerHTML=sorted.length?sorted.map(e=>`<div class="listitem"><h3>${esc(e.title)}</h3><p>${esc(e.date)} à ${esc(e.time)} · ${esc(e.type||'Publication')}</p><div class="listbuttons"><button onclick="editEvent(${e.id})">Modifier</button><button class="danger" onclick="deleteEvent(${e.id})">Supprimer</button></div></div>`).join(''):'<p class="smallmuted">Aucun rendez-vous enregistré.</p>';document.getElementById('miniCalendar').innerHTML=(()=>{const t0=new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10),t7=new Date(Date.now()+7*864e5).toISOString().slice(0,10);return sorted.filter(e=>e.date>=t0&&e.date<=t7).slice(0,6).map(e=>`<div class="event"><span>${esc(e.date.slice(8)+'/'+e.date.slice(5,7))}</span><span>${esc(e.time)}</span><div class="eventtext">${esc(e.title)}</div><span class="dot" style="background:${e.date===t0?'var(--green)':'var(--cyan)'}"></span></div>`).join('')||'<p class="smallmuted">Rien de prévu dans les 7 prochains jours.</p>'})()}
+function editEvent(id){const e=data.events.find(x=>x.id===id);if(!e)return;const date=prompt('Nouvelle date (AAAA-MM-JJ)',e.date);if(!date)return;const time=prompt('Nouvelle heure (HH:MM)',e.time);if(!time)return;if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!/^\d{2}:\d{2}$/.test(time)){alert('Date ou heure invalide.');return}e.date=date;e.time=time;const p=data.posts.find(x=>x.id===id);if(p){p.date=date;p.time=time}persist();renderAll()}
+function deleteEvent(id){ask('Supprimer ce rendez-vous ?','Cette action ne peut pas être annulée.',()=>{data.events=data.events.filter(e=>e.id!==id);data.posts=data.posts.filter(p=>p.id!==id);persist();renderAll()})}
+function renderPosts(){const q=(document.getElementById('postsearch')?.value||'').toLowerCase(),f=document.getElementById('postfilter')?.value||'';const list=data.posts.filter(p=>(!f||p.status===f)&&[p.title,p.body,p.topic,p.hashtags].join(' ').toLowerCase().includes(q));document.getElementById('postlist').innerHTML=list.length?list.map(p=>postCard(p)).join(''):'<p class="smallmuted">Aucune publication correspondante.</p>'}
+function postCard(p){return `<div class="listitem"><h3>${esc(p.title||p.topic||'Sans titre')}</h3><p>${esc((p.body||'').slice(0,350))}</p><small class="smallmuted">${esc(p.status)} · ${esc(p.type)} · ${new Date(p.created).toLocaleString('fr-FR')}</small><div class="listbuttons"><button onclick="loadPost(${p.id})">Ouvrir</button><button onclick="duplicatePost(${p.id})">Dupliquer</button><button onclick="copySaved(${p.id})">Copier</button><button onclick="markReady(${p.id})">Prête à publier</button><button class="danger" onclick="deletePost(${p.id})">Supprimer</button></div></div>`}
+function renderDrafts(){const list=data.posts.filter(p=>p.status==='Brouillon');document.getElementById('draftlist').innerHTML=list.length?list.map(postCard).join(''):'<p class="smallmuted">Aucun brouillon.</p>'}
+function loadPost(id){const p=data.posts.find(x=>x.id===id);if(!p)return;selectedType=p.type||'Actualité';document.querySelectorAll('.type').forEach(b=>b.classList.toggle('selected',b.dataset.type===selectedType));document.getElementById('topic').value=p.topic||'';document.getElementById('title').value=p.title||'';document.getElementById('bodytext').value=p.body||'';document.getElementById('hashtags').value=p.hashtags||'';document.getElementById('tone').value=p.tone||'Enthousiaste';updatePreview();showView('home');say('Publication chargée dans le générateur.')}
+function duplicatePost(id){const p=data.posts.find(x=>x.id===id);if(!p)return;data.posts.unshift({...p,id:Date.now(),status:'Brouillon',created:new Date().toISOString()});persist();renderAll()}
+function copySaved(id){const p=data.posts.find(x=>x.id===id);if(!p)return;navigator.clipboard?.writeText([p.title,p.body,p.hashtags].join('\n\n')).then(()=>say('Publication copiée.')).catch(()=>say('Copie automatique indisponible. Ouvrez la publication pour copier manuellement.'))}
+function markReady(id){const p=data.posts.find(x=>x.id===id);if(p){p.status='Prête à publier';persist();renderAll()}}
+function deletePost(id){ask('Supprimer cette publication ?','La suppression est définitive.',()=>{data.posts=data.posts.filter(p=>p.id!==id);data.events=data.events.filter(e=>e.id!==id);persist();renderAll()})}
+function renderImages(){document.getElementById('imagelist').innerHTML=imageLibrary.length?imageLibrary.map((x,i)=>`<div class="listitem"><strong>${esc(x.name)}</strong><button onclick="useImage(${i})">Utiliser</button><button class="danger" onclick="removeImage(${i})">Retirer</button></div>`).join(''):'<p class="smallmuted">Aucune image importée dans cette session.</p>'}
+function useImage(i){currentImage=imageLibrary[i].url;const img=document.getElementById('previmage');img.src=currentImage;img.classList.remove('hidden');showView('home')}
+function removeImage(i){imageLibrary.splice(i,1);renderImages()}
+document.getElementById('imagefile').addEventListener('change',e=>{const f=e.target.files?.[0];if(!f)return;if(!f.type.startsWith('image/')){say('Fichier non reconnu comme image.');return}if(f.size>5*1024*1024){say('Image trop volumineuse (maximum 5 Mo).');e.target.value='';return}const reader=new FileReader();reader.onload=()=>{currentImage=reader.result;imageLibrary.unshift({name:f.name,url:reader.result});const img=document.getElementById('previmage');img.src=currentImage;img.classList.remove('hidden');renderImages();say('Image chargée pour l’aperçu. Elle reste dans la session courante.')};reader.onerror=()=>say('Impossible de lire cette image.');reader.readAsDataURL(f)});
+function togglePreviewImage(){document.getElementById('previmage').classList.toggle('hidden')}
+function clearAll(){ask('Effacer toutes les données ?','Tous les brouillons et rendez-vous locaux seront supprimés.',()=>{data={posts:[],events:[]};persist();renderAll();say('Données locales effacées.')})}
+function ask(title,message,fn){document.getElementById('modalTitle').textContent=title;document.getElementById('modalText').textContent=message;confirmAction=fn;document.getElementById('modal').classList.add('show');document.getElementById('modalConfirm').onclick=()=>{closeModal();if(confirmAction)confirmAction()}}
+function closeModal(){document.getElementById('modal').classList.remove('show');confirmAction=null}
+function renderAll(){renderTrends();renderCalendar();renderPosts();renderDrafts();renderCounts()}
+function renderCounts(){document.getElementById('draftCount').textContent=data.posts.filter(p=>p.status==='Brouillon').length;document.getElementById('readyCount').textContent=data.posts.filter(p=>p.status==='Prête à publier').length;document.getElementById('scheduledCount').textContent=data.posts.filter(p=>p.status==='Programmée').length}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+document.getElementById('jsonfile').addEventListener('change',e=>{const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d||!Array.isArray(d.posts)||!Array.isArray(d.events))throw Error('format');ask('Importer les données ?','Les données importées remplaceront les données actuelles.',()=>{data={posts:d.posts,events:d.events};persist();renderAll();say('Données JSON importées.')})}catch(err){say('Fichier JSON invalide ou incompatible.')}e.target.value=''};r.readAsText(f)});
+document.getElementById('schedDate').value=new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
+updatePreview();renderAll();
+
+/* ===== Automatisation (GitHub Actions) : tableau de bord en lecture seule ===== */
+let AUTO=null;const aEl=id=>document.getElementById(id);
+const REPO=(()=>{const m=location.hostname.match(/^([^.]+)\.github\.io$/i);if(!m)return null;const p=location.pathname.split('/').filter(x=>x&&!/\.html?$/i.test(x))[0];return{owner:m[1],repo:p||m[1]+'.github.io'}})();
+const ghUrl=p=>REPO?`https://github.com/${REPO.owner}/${REPO.repo}/${p}`:'https://github.com';
+async function dataGet(n){const u=[];if(REPO)u.push(`https://raw.githubusercontent.com/${REPO.owner}/${REPO.repo}/main/data/${n}.json`);u.push(`data/${n}.json`);for(const x of u){try{const r=await fetch(x+'?t='+Date.now(),{cache:'no-store'});if(r.ok)return await r.json()}catch(e){}}return null}
+function fd(t){return t?new Date(t).toLocaleString('fr-FR'):'—'}
+async function autoLoad(){aEl('autoMsg').textContent='Chargement des données…';aEl('lnkRun').href=ghUrl('actions/workflows/cycle.yml');aEl('lnkSet').href=ghUrl('edit/main/data/settings.json');aEl('lnkSec').href=ghUrl('settings/secrets/actions');
+ const[st,se]=await Promise.all([dataGet('state'),dataGet('settings')]);
+ if(!st&&!se){aEl('autoMsg').textContent='Aucune donnée trouvée. Publiez le site sur GitHub puis lancez le workflow « Cycle automatique » (voir tuto.html).';return}
+ AUTO={s:se||{},st:{posts:[],logs:[],discovered:[],srcHealth:{},...(st||{})}};aEl('autoBox').classList.remove('hidden');renderAuto();aEl('autoMsg').textContent='Données chargées (mises à jour par le robot après chaque cycle ; GitHub peut mettre quelques minutes à les afficher).'}
+function copyPrompt(id){const p=AUTO.st.posts.find(x=>x.id===id);if(!p||!p.imagePrompt)return;const t=p.imagePrompt.en+'\n\nNegative prompt: '+p.imagePrompt.negative+'\nAspect ratio: '+p.imagePrompt.ratio;const ok=()=>aEl('autoMsg').textContent='Prompt copié.';if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok).catch(()=>{fallbackCopy(t)});else fallbackCopy(t)}
+function srcHealth(id){const h=(AUTO.st.srcHealth||{})[id];return h&&h.fails?` <span class="badge ko">⚠ ${Number(h.fails)} échec(s) : ${esc(h.err||'')}</span>`:(h&&h.lastOk?' <span class="badge ok">✓ ok</span>':'')}
+function safeHref(u){try{const x=new URL(u);return x.protocol==='https:'?x.href:''}catch(e){return ''}}
+function renderAuto(){const s=AUTO.s,st=AUTO.st,posts=st.posts||[],logs=st.logs||[],disc=st.discovered||[];
+ const nxt=st.lastRunAt?st.lastRunAt+(s.intervalHours||5)*3600000:null,pub=posts.filter(p=>p.status==='Publiée').length,rdy=posts.filter(p=>p.status==='Prête').length;
+ const kpi=(a,b,c)=>`<div class="kpi"><small>${a}</small><b>${b}</b>${c?`<em>${c}</em>`:''}</div>`;
+ aEl('autoKpis').innerHTML=kpi('Mode',s.testMode?'TEST':'RÉEL',s.testMode?'rien n\'est publié':'publie sur Facebook')+kpi('Publication auto',s.autoPublish?'activée':'suspendue','')+kpi('Publiées',pub,rdy+' en attente')+kpi('Sources',(s.sources||[]).filter(x=>x.enabled).length+disc.length,disc.length+' détectée(s)')+kpi('Dernier cycle',fd(st.lastRunAt),'prochain après '+fd(nxt));
+ aEl('aPosts').innerHTML=posts.length?posts.slice(-40).reverse().map(p=>{const h=safeHref(p.page);return`<div class="listitem"><h3>${esc(p.title)}</h3><p>${esc(p.text)}</p><small class="smallmuted"><span class="badge ${p.status==='Publiée'?'ok':p.status==='Erreur'?'ko':'warn'}">${esc(p.status)}</span> ${esc(p.format)} · ${esc(p.sourceName)} · licence : ${esc(p.license)}${p.error?' · '+esc(p.error):''}${p.fbId?' · FB '+esc(p.fbId):''}${p.imagePrompt&&p.imagePrompt.distorted?' · 🌀 style déformé':''} · ID <code>${esc(p.id)}</code></small>${p.imagePrompt?`<details><summary>🎨 Prompt image</summary><p class="smallmuted" style="white-space:pre-wrap">${esc(p.imagePrompt.en)}\n\nNégatif : ${esc(p.imagePrompt.negative)}\nFormat : ${esc(p.imagePrompt.ratio)}</p></details>`:''}<div class="listbuttons">${h?`<a class="btn" href="${esc(h)}" target="_blank" rel="noopener noreferrer">↗ Article</a>`:''}${p.imagePrompt?`<button class="pink" onclick="copyPrompt('${esc(p.id)}')">⧉ Copier le prompt</button>`:''}</div></div>`}).join(''):'<p class="smallmuted">Aucune publication préparée pour l\'instant.</p>';
+ aEl('aSrc').innerHTML=[...(s.sources||[]),...disc].map(x=>`<div class="listitem"><strong>${esc(x.name)}</strong> <span class="badge">${esc(x.type)}</span> ${x.enabled?'':'<span class="badge warn">désactivée</span>'}${srcHealth(x.id)}<br><small class="smallmuted">${esc(x.url)}</small></div>`).join('')||'<p class="smallmuted">Aucune source.</p>';
+ aEl('aLogs').innerHTML=logs.length?logs.map(l=>`<div class="listitem"><small>${fd(l.at)} · ${esc(l.mode||'inconnu')}</small><p>Nouvelles : ${Number(l.newImages)||0} · Doublons : ${Number(l.duplicates)||0} · Préparées : ${Number(l.prepared)||0} · Publiées : ${Number(l.published)||0}</p>${(Array.isArray(l.errors)?l.errors:[]).map(e=>'<p style="color:#ff9ab2">'+esc(e)+'</p>').join('')}</div>`).join(''):'<p class="smallmuted">Aucune exécution.</p>'}
+const TUTO=[
+['A — Compte GitHub','Créez un compte gratuit sur github.com et confirmez votre e-mail.'],
+['B — Créer le dépôt PUBLIC','New repository → nom (ex. anime-trend) → Public. Le gratuit exige un dépôt public pour GitHub Pages. Aucun secret n\'est stocké dans le dépôt.'],
+['C — Envoyer les fichiers','Add file → Upload files : glissez TOUT le contenu du dossier (y compris .github et data). Commit changes.'],
+['D — Activer GitHub Pages','Settings → Pages → Source : Deploy from a branch → main / (root) → Save. Le site apparaît à https://VOTRE-NOM.github.io/anime-trend/.'],
+['E — Autoriser le robot','Settings → Actions → General → Workflow permissions : Read and write permissions → Save.'],
+['F — Premier cycle en mode TEST','Actions → Cycle automatique → Run workflow (cochez « Forcer »). Le mode test ne publie rien sur Facebook.'],
+['G — Lire le tableau de bord','Ouvrez l\'onglet Automatisation du site : sources, publications préparées, journal. Corrigez les sources en erreur.'],
+['H — Connecter Facebook','developers.facebook.com : créez une app, générez un jeton de Page avec pages_manage_posts et pages_read_engagement. Vérifiez les exigences Meta actuelles.'],
+['I — Ajouter les secrets','Settings → Secrets and variables → Actions → New repository secret : FB_PAGE_ID et FB_PAGE_TOKEN. Jamais dans un fichier du dépôt.'],
+['J — Passer en mode réel','Modifiez data/settings.json : remplacez testMode: true par testMode: false (sans guillemets autour de false). Commit. Lancez un cycle forcé et contrôlez UNE publication sur la Page.'],
+['K — Images et prompts','Onglet Automatisation → « 🎨 Prompt image » → Copier le prompt, puis collez-le dans votre outil d\'image (vérifiez ses conditions d\'usage).'],
+['L — Surveiller','Chaque mois : onglet Actions (les cycles planifiés sont suspendus par GitHub après 60 jours sans activité du dépôt), jeton Facebook, erreurs du journal.']];
+const TUTO_MODEL='🎬 [Accroche liée à l\'actualité : ex. adaptation, sortie, fin de série]\nSelon [source] : « [titre de l\'actualité] ».\n\n[Votre avis en une phrase, sans inventer de détails]\n\n❓ [Question à la communauté]\n\n#Manga #MangaNews #Actualité\nSource : [nom de la source]';
+function tutoRender(){let d={};try{d=JSON.parse(localStorage.getItem('atTuto')||'{}')}catch(e){}aEl('tutoList').innerHTML=TUTO.map((t,i)=>`<div class="listitem"><label><input type="checkbox" ${d[i]?'checked':''} onchange="tutoTick(${i},this.checked)"> <strong>${esc(t[0])}</strong></label><p>${esc(t[1])}</p></div>`).join('');aEl('tutoProg').textContent=Object.values(d).filter(Boolean).length+' / '+TUTO.length;aEl('tutoModel').textContent=TUTO_MODEL}
+function tutoTick(i,v){let d={};try{d=JSON.parse(localStorage.getItem('atTuto')||'{}')}catch(e){}d[i]=v;try{localStorage.setItem('atTuto',JSON.stringify(d))}catch(e){}tutoRender()}
+function copyTutoModel(){if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(TUTO_MODEL).catch(()=>fallbackCopy(TUTO_MODEL));else fallbackCopy(TUTO_MODEL)}
+tutoRender();
+
+/* ===== Icônes (traits), puces hashtags ===== */
+const IC={home:'M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z',create:'M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2z',trends:'M12 2c1 4 5 6 5 11a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-4-1-6 1-10z',calendar:'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4',drafts:'M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h7',posts:'M4 4h16v16H4zM8 12l3 3 5-6',images:'M3 5h18v14H3zM3 16l5-5 4 4 3-3 6 5',export:'M12 3v12M7 10l5 5 5-5M4 20h16',help:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01',auto:'M13 2L4 14h7l-1 8 9-12h-7z',tuto:'M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5',settings:'M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6',
+ 'Actualité':'M3 11v3h3l8 4V7L6 11zM18 9a4 4 0 0 1 0 6','Personnage':'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21c0-4 4-6 8-6s8 2 8 6','Comparaison':'M12 4v16M5 20h14M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z','Sondage':'M5 20V11M12 20V4M19 20v-7','Quiz':'M9 9a3 3 0 1 1 4.5 2.6c-1 .6-1.5 1.2-1.5 2.4M12 18h.01','Théorie':'M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V4a3 3 0 0 0-3 0zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1'};
+const ico=(n,z=22)=>`<svg viewBox="0 0 24 24" width="${z}" height="${z}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${IC[n]}"/></svg>`;
+function applyIcons(){document.querySelectorAll('.navitem[data-view]').forEach(b=>{const n=b.dataset.view;if(IC[n])b.querySelector('span').innerHTML=ico(n)});['home','calendar','posts','settings'].forEach((n,i)=>{const b=document.querySelectorAll('.topnav b')[i];if(b)b.innerHTML=ico(n,24)});document.querySelectorAll('.type').forEach(b=>{const n=b.dataset.type;if(IC[n])b.querySelector('i').innerHTML=ico(n,30)})}
+function renderChips(){const tags=getTags().split(/\s+/).filter(Boolean);aEl('chips').innerHTML=tags.map(t=>`<span class="chip">${esc(t)}</span>`).join('')+'<button class="chip" type="button" onclick="document.getElementById(\'hashtags\').focus()" aria-label="Ajouter un hashtag">+</button>'}
+new MutationObserver(renderChips).observe(document.getElementById('prevhash'),{childList:true,characterData:true,subtree:true});
+applyIcons();renderChips();loadLiveTrends();
+</script>
+</body>
+</html>
