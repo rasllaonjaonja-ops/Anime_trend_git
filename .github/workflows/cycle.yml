@@ -1,58 +1,50 @@
-name: Cycle automatique
+name: Anime Trend - Cycle automatique
 
 on:
-  schedule:
-    - cron: "17 * * * *"        # toutes les heures (à :17, pour éviter l'heure pile très chargée)
   workflow_dispatch:
-    inputs:
-      force:
-        description: "Forcer un cycle maintenant (ignore l'intervalle de 5 h)"
-        type: boolean
-        default: false
-      sites:
-        description: "Sites manga/anime à détecter (séparés par des espaces)"
-        type: string
-        default: ""
-      reject_id:
-        description: "ID d'une publication à rejeter (facultatif)"
-        type: string
-        default: ""
+  schedule:
+    - cron: '0 */5 * * *'
 
 permissions:
   contents: write
 
-concurrency:
-  group: cycle
-  cancel-in-progress: false
-
 jobs:
   cycle:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
-      - name: Lancer le cycle
-        run: node scripts/run-cycle.mjs
-        env:
-          FORCE: ${{ inputs.force }}
-          SITES: ${{ inputs.sites }}
-          REJECT_ID: ${{ inputs.reject_id }}
-          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
-          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
-          FB_GRAPH_VERSION: ${{ vars.FB_GRAPH_VERSION }}
-      - name: Enregistrer les données
-        run: |
-          git config user.name "anime-trend-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add data
-          if git diff --cached --quiet; then
-            echo "Aucun changement à enregistrer."
-          else
-            git commit -m "Cycle du $(date -u '+%Y-%m-%d %H:%M') UTC"
-            git pull --rebase
-            git push
-          fi
-          
+          node-version: '20'
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Exécuter le cycle
+        run: npm run cycle
+
+**Important :** le code ci-dessus suppose que ton `package.json` contient bien un script nommé `cycle`. Nous vérifierons cela si le workflow échoue encore.
+
+## Étape 3 — Enregistrer
+
+1. Descends en bas de l’éditeur.
+2. Appuie sur **Commit changes**.
+3. Confirme avec **Commit changes**.
+
+Cela enregistre la correction et déclenche normalement une nouvelle exécution.
+
+## Étape 4 — Vérifier
+
+Retourne dans **Actions**, puis ouvre la nouvelle exécution de `cycle.yml`.
+
+- ✅ **Coche verte** : cette erreur de déclenchement est corrigée.
+- ❌ **Croix rouge** : ouvre l’exécution et envoie-moi le nouveau message d’erreur.
+
+### Attention à deux points
+
+- Le cycle est programmé toutes les cinq heures, mais GitHub Actions ne garantit pas une exécution à la minute exacte.
+- **La publication Facebook n’est pas automatiquement configurée par cette correction.** Il faudra vérifier les secrets Facebook et le code de publication avant de considérer le système comme entièrement automatique.
