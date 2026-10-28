@@ -1,58 +1,58 @@
 name: Anime Trend - Cycle automatique
 
 on:
-workflow_dispatch:
-inputs:
-force:
-description: "Forcer un cycle maintenant"
-type: boolean
-default: false
-schedule:
-- cron: '0 */5 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Forcer un cycle maintenant"
+        type: boolean
+        default: false
+  schedule:
+    - cron: '0 */5 * * *'
 
 permissions:
-contents: write
+  contents: write
 
 concurrency:
-group: anime-trend-cycle
-cancel-in-progress: false
+  group: anime-trend-cycle
+  cancel-in-progress: false
 
 jobs:
-cycle:
-runs-on: ubuntu-latest
-timeout-minutes: 10
+  cycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
 
-steps:
-  - name: Récupérer le dépôt
-    uses: actions/checkout@v4
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
 
-  - name: Installer Node.js
-    uses: actions/setup-node@v4
-    with:
-      node-version: '22'
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
 
-  - name: Installer les dépendances
-    run: npm install
+      - name: Installer les dépendances
+        run: npm install
 
-  - name: Vérifier le projet
-    run: |
-      echo "Vérification des fichiers du projet"
-      test -f package.json
-      test -f scripts/run-cycle.mjs
+      - name: Vérifier le projet
+        run: |
+          echo "Vérification des fichiers du projet"
+          test -f package.json
+          test -f scripts/run-cycle.mjs
 
-  - name: Exécuter le cycle
-    run: node scripts/run-cycle.mjs
-    env:
-      FORCE: ${{ inputs.force }}
+      - name: Exécuter le cycle
+        run: node scripts/run-cycle.mjs
+        env:
+          FORCE: ${{ inputs.force }}
 
-  - name: Enregistrer les données du cycle
-    run: |
-      git config user.name "anime-trend-bot"
-      git config user.email "actions@users.noreply.github.com"
-      git add data
-      if git diff --cached --quiet; then
-        echo "Aucune modification des données à enregistrer."
-      else
-        git commit -m "Mise à jour automatique Anime Trend"
-        git push
-      fi
+      - name: Enregistrer les données du cycle
+        run: |
+          git config user.name "anime-trend-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "Aucune modification des données à enregistrer."
+          else
+            git commit -m "Mise à jour automatique Anime Trend"
+            git push
+          fi
